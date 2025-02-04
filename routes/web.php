@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\BoletoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -40,7 +40,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('clientes', ClienteController::class);
+    Route::resource('clientes', ClienteController::class)->except(['create', 'show', 'edit']);
+    Route::resource('boletos', BoletoController::class)->except(['create', 'show', 'edit']);
 });
 
 require __DIR__.'/auth.php';

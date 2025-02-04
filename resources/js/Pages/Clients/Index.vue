@@ -77,14 +77,14 @@ const submit = () => {
                                 <tr>
                                     <th class="px-6 py-3 text-left">Nome</th>
                                     <th class="px-6 py-3 text-left">CNPJ</th>
-                                    <th class="px-6 py-3 text-right">Ações</th>
+                                    <th class="px-6 py-3 text-center">Ações</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200">
                                 <tr v-for="cliente in clientes" :key="cliente.id">
                                     <td class="px-6 py-4">{{ cliente.nome }}</td>
                                     <td class="px-6 py-4">{{ cliente.cnpj }}</td>
-                                    <td class="px-6 py-4 text-right">
+                                    <td class="px-6 py-4 text-center">
                                         <button
                                             @click="openModal(cliente)"
                                             class="text-indigo-600 hover:text-indigo-900 mr-3"
@@ -101,6 +101,7 @@ const submit = () => {
                                 </tr>
                             </tbody>
                         </table>
+
                         <!-- Modal -->
                         <Modal :show="showingModal" @close="closeModal">
                             <div class="p-6">
