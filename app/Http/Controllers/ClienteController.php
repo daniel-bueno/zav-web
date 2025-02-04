@@ -15,11 +15,6 @@ class ClienteController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        return Inertia::render('Clients/Create');
-    }
-
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -31,13 +26,6 @@ class ClienteController extends Controller
 
         return redirect()->route('clientes.index')
             ->with('message', 'Cliente criado com sucesso!');
-    }
-
-    public function edit(Cliente $cliente)
-    {
-        return Inertia::render('Clients/Edit', [
-            'cliente' => $cliente
-        ]);
     }
 
     public function update(Request $request, Cliente $cliente)
